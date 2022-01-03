@@ -17,14 +17,41 @@
   </mat-menu>
 
   <mat-sidenav-container class="main-container">
-    <mat-sidenav #sidenav opened="{{!mobileQuery.matches}}" disableClose="{{!mobileQuery.matches}}" [mode]="mobileQuery.matches ? 'over' : 'side'"
-      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
-        <a mat-list-item routerLink="{{menu.link}}" *ngFor="let menu of sideMenus">
-          <mat-icon color="primary" aria-hidden="true" aria-label="menu.label">{{menu.icon}}</mat-icon>
-          <span class="menu-label">{{menu.label}}</span>
-        </a>
-      </mat-nav-list>
+    <mat-sidenav #sidenav opened="{{!mobileQuery.matches}}" disableClose="{{!mobileQuery.matches}}"
+      [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-expansion-panel [class.mat-elevation-z0]="true" [expanded]="true" hideToggle>
+        <mat-expansion-panel-header>
+          Tenant 1
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="{{menu.link}}" *ngFor="let menu of sideMenus(tenant1)">
+            <mat-icon color="primary" aria-hidden="true" aria-label="menu.label">{{menu.icon}}</mat-icon>
+            <span class="menu-label">{{menu.label}}</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel [class.mat-elevation-z0]="true" [expanded]="true" hideToggle>
+        <mat-expansion-panel-header>
+          Tenant 2
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="{{menu.link}}" *ngFor="let menu of sideMenus(tenant2)">
+            <mat-icon color="primary" aria-hidden="true" aria-label="menu.label">{{menu.icon}}</mat-icon>
+            <span class="menu-label">{{menu.label}}</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel [class.mat-elevation-z0]="true" [expanded]="true" hideToggle>
+        <mat-expansion-panel-header>
+          Tenant 3
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="{{menu.link}}" *ngFor="let menu of sideMenus(tenant3)">
+            <mat-icon color="primary" aria-hidden="true" aria-label="menu.label">{{menu.icon}}</mat-icon>
+            <span class="menu-label">{{menu.label}}</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
     </mat-sidenav>
 
     <mat-sidenav-content>

@@ -6,12 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
-import { metaReducers, reducers } from './state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProductsComponent } from './products/products.component';
+import { StoreModule } from '@ngrx/store';
+import { rootReducer } from './state';
 import { EffectsModule } from '@ngrx/effects';
-import { ProductEffects } from './products/state/products.effects';
 
 @NgModule({
   declarations: [
@@ -24,9 +23,9 @@ import { ProductEffects } from './products/state/products.effects';
     AppMaterialModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(rootReducer),
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([ProductEffects])
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

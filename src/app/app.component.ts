@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { Tenant, Tenant1, Tenant2, Tenant3 } from './model/tenant';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  sideMenus = [
+  private _sideMenus = [
     {
       label: 'Product',
       link: 'products',
@@ -18,6 +19,10 @@ export class AppComponent implements OnInit, OnDestroy {
   ];
 
   mobileQuery: MediaQueryList;
+
+  tenant1 = Tenant1;
+  tenant2 = Tenant2;
+  tenant3 = Tenant3;
 
   private mobileQueryListener: () => void;
 
@@ -37,6 +42,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
+  }
+
+  sideMenus(tenant: Tenant) {
+    return this._sideMenus.map(menu => {
+      return {
+        ... menu,
+        link: `${tenant.key}/${menu.link}`
+      }
+    });
   }
 
   logout() {

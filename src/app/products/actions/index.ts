@@ -1,23 +1,24 @@
 import { createAction, props } from "@ngrx/store";
+import { Tenant } from "src/app/model/tenant";
 import { Product } from "../products.model";
 
-const loadProducts = createAction('[Products] Load Products');
+const loadProducts = (tenant: Tenant) => createAction(`${tenant.key}:[Products] Load Products`);
 
-const loadProductsSuccess = createAction('[Products] Load Products Success', props<{ products: Product[] }>());
+const loadProductsSuccess = (tenant: Tenant) => createAction(`${tenant.key}:[Products] Load Products Success`, props<{ products: Product[] }>());
 
-const loadProductsError = createAction('[Products] Load Products Error');
+const loadProductsError = (tenant: Tenant) => createAction(`${tenant.key}:[Products] Load Products Error`);
 
-const addProduct = createAction('[Products] Add Product', props<{ product: Product }>());
+const addProduct = (tenant: Tenant) => createAction(`${tenant.key}:[Products] Add Product`, props<{ product: Product }>());
 
-const addProductSuccess = createAction('[Products] Add Product Success', props<{ product: Product }>());
+const addProductSuccess = (tenant: Tenant) => createAction(`${tenant.key}:[Products] Add Product Success`, props<{ product: Product }>());
 
-const addProductError = createAction('[Products] Add Product Error');
+const addProductError = (tenant: Tenant) => createAction(`${tenant.key}:[Products] Add Product Error`);
 
-const deleteProduct = createAction('[Products] Delete Product', props<{ id: number }>());
+const deleteProduct = (tenant: Tenant) => createAction(`${tenant.key}:[Products] Delete Product`, props<{ id: number }>());
 
-const deleteProductSuccess = createAction('[Products] Delete Product Success', props<{ id: number }>());
+const deleteProductSuccess = (tenant: Tenant) => createAction(`${tenant.key}:[Products] Delete Product Success`, props<{ id: number }>());
 
-const deleteProductError = createAction('[Products] Delete Product Error');
+const deleteProductError = (tenant: Tenant) => createAction(`${tenant.key}:[Products] Delete Product Error`);
 
 export {
   loadProducts,
