@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "[tenant1] Product 1"
+  },
+  {
+    "id": 2,
+    "name": "[tenant1] Product 2"
+  },
+  {
+    "id": 3,
+    "name": "[tenant1] Product 3"
+  }
+]
